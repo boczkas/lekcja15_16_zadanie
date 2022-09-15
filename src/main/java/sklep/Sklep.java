@@ -7,15 +7,13 @@ import java.util.List;
 
 public class Sklep {
 
+//    Metoda ma rzucac wyjatek w przypadku pojawienia sie zlodzieja w sklepie
     public void obsluzKlientow(List<Klient> klienci) throws ZlodziejWSklepieException {
         for (Klient klient : klienci) {
-            if (klient.getTypKlienta() != TypKlienta.ZLODZIEJ) {
-                System.out.println("Witaj drogi " + klient.getImie());
-                if (klient.getTypKlienta().equals(TypKlienta.STALY)) {
-                    System.out.println("Otrzymujesz znizke 5%!");
-                }
-            } else {
+            if (klient.getTypKlienta() == TypKlienta.ZLODZIEJ) {
                 throw new ZlodziejWSklepieException();
+            } else {
+//                Twoja implementacja idzie tutaj
             }
         }
     }
